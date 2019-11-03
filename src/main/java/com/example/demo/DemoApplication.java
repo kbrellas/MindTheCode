@@ -68,10 +68,12 @@ public class DemoApplication implements CommandLineRunner {//gia na xrhimopoieis
 		User mitsos = new User("Dimitris","Koufontinas",50, User.Status.PLATINUM);
 		User maria = new User("Maria","Damanaki",5, User.Status.LOYAL);
 		User katerina = new User("Katerina","Notopoulou",20, User.Status.GOLD);
+		User alexis = new User("Alexis","Tsipras",22, User.Status.GOLD);
 		userRepo.save(kostas);
 		userRepo.save(mitsos);
 		userRepo.save(maria);
 		userRepo.save(katerina);
+		userRepo.save(alexis);
 
 	}
 }
