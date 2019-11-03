@@ -23,4 +23,18 @@ public class UserMapper {
     private String mapStatus(User.Status status) {
         return String.valueOf(status).toLowerCase();
     }
+
+
+    public List<UserResponse> mapUsersStatus(Iterable<User> all, String status) {
+        List<UserResponse> userResponses = new ArrayList<>();
+        for(User user : all){
+            if(user.getStatus().toString().equalsIgnoreCase(status)){
+                userResponses.add(new UserResponse(user.getId(),
+                        user.getFirstName()+" "+user.getLastName(),
+                        user.getNumberOfBookings(),
+                        mapStatus(user.getStatus())));
+            }
+        }
+        return  userResponses;
+    }
 }

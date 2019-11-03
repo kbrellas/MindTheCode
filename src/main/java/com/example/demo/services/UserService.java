@@ -23,4 +23,8 @@ public class UserService {
 
         return userMapper.mapUsers(userRepo.findAll());
     }
+
+    public List<UserResponse> getUserStatus(String status) {
+        return userMapper.mapUsersStatus(userRepo.findAll(),status);
+    }
 }
