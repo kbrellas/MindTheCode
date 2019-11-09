@@ -31,4 +31,9 @@ public class TourController {
     public GetAllToursResponse getExpensiveTours(){
         return new GetAllToursResponse(tourService.getExpensiveTours());
     }
+
+    @GetMapping("/getToursByCriteria/{criteria}/{id}")
+    public GetAllToursResponse getToursByriteria(@PathVariable String criteria, @PathVariable long id) {
+        return new GetAllToursResponse(tourService.getToursByCriteria(criteria,id));
+    }
 }

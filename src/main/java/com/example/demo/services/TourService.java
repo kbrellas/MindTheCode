@@ -56,4 +56,17 @@ public class TourService {
         }
         return  expensiveTours;
     }
+
+    public List<TourResponse> getToursByCriteria(String criteria, long id) {
+        Iterable<Tour> tours = tourRepository.findAll();
+        List<TourResponse> tourResponses = new ArrayList<>();
+        if(criteria.equals("tourPackage")){
+            for (Tour tour : tours){
+                if (tour.getTourPackage().getId()==id){
+                    tourResponses.add(tourMapper.mapTourResponseFromTour(tour));
+                }
+            }
+        }
+        return tourResponses;
+    }
 }
