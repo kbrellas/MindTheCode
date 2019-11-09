@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.HomeInteractor;
 import com.example.demo.pojos.HomePageResponse;
 import com.example.demo.pojos.TourPackage;
 import com.example.demo.pojos.TourPackageResponse;
@@ -14,21 +15,12 @@ import java.util.List;
 
 @RestController
 public class HomePageController {
-    @Autowired
-    UserService userService;
 
     @Autowired
-    TourPackageService tourPackageService;
-
+    HomeInteractor homeInteractor;
     @GetMapping("/home")
     public HomePageResponse getHomePage(){
-        List<TourPackageResponse> tourPackages=tourPackageService.getAllTourPackages();
-        List<UserResponse> users =userService.getAllUsers();
-        int numberOfTourPackages = tourPackages.size();
-        int numberOfUsers =users.size();
-        String title="Home Page";
-
-        HomePageResponse homePageResponse= new HomePageResponse(title,numberOfTourPackages,numberOfUsers,tourPackages,users);
-        return homePageResponse;
+        return homeInteractor.getHomePage();
     }
+
 }
