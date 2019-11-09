@@ -33,7 +33,7 @@ public class TourController {
     }
 
     @GetMapping("/getToursByCriteria/{criteria}/{id}")
-    public GetAllToursResponse getToursByriteria(@PathVariable String criteria, @PathVariable long id) {
+    public GetAllToursResponse getToursByCriteria(@PathVariable String criteria, @PathVariable long id) {
         return new GetAllToursResponse(tourService.getToursByCriteria(criteria,id));
     }
 }
