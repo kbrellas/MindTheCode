@@ -64,7 +64,7 @@ public class DemoApplication implements CommandLineRunner {//gia na xrhimopoieis
 		tourRepo.save(dimitsana);
 		tourRepo.save(rafting);
 
-		User kostas = new User("Kostas","Mitsotakis",3, User.Status.NEW);
+		User kostas = new User("Kostas","Mitsotakis",3, User.Status.LOYAL);
 		User mitsos = new User("Dimitris","Koufontinas",50, User.Status.PLATINUM);
 		User maria = new User("Maria","Damanaki",5, User.Status.LOYAL);
 		User katerina = new User("Katerina","Notopoulou",20, User.Status.GOLD);

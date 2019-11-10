@@ -26,11 +26,14 @@ public class UserService {
     }
 
     public GenericResponse<List<UserResponse>> getUserStatus(String status) {
-        if(userMapper.checkStatus(status)) {
+        if(status.equalsIgnoreCase("new") ||
+                status.equalsIgnoreCase("loyal") ||
+                status.equalsIgnoreCase("gold") ||
+                status.equalsIgnoreCase("platinum")) {
             return new GenericResponse(userMapper.mapUsersStatus(userRepo.findAll(), status));
         }
         else{
-            return new GenericResponse(new Error(0,"status error","thers is no status type of :"+status));
+            return new GenericResponse(new Error(0,"status error","there is no status type of :"+status));
         }
     }
 }

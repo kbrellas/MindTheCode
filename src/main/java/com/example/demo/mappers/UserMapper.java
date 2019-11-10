@@ -37,15 +37,4 @@ public class UserMapper {
         }
         return  userResponses;
     }
-
-    public boolean checkStatus(String status) {
-        if(status.equalsIgnoreCase("new") ||
-                status.equalsIgnoreCase("loyal") ||
-                status.equalsIgnoreCase("gold") ||
-                status.equalsIgnoreCase("platinum")
-        )
-            return true;
-        else
-            return false;
-    }
 }
