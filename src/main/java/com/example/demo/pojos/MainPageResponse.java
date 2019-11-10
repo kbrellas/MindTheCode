@@ -15,6 +15,9 @@ public class MainPageResponse {
         this.userResponses = userResponses;
     }
 
+    public MainPageResponse() {
+    }
+
     public int getNumberOfTours() {
         return numberOfTours;
     }
