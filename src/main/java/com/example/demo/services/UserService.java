@@ -3,7 +3,6 @@ package com.example.demo.services;
 import com.example.demo.mappers.UserMapper;
 import com.example.demo.pojos.Error;
 import com.example.demo.pojos.GenericResponse;
-import com.example.demo.pojos.User;
 import com.example.demo.pojos.UserResponse;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
