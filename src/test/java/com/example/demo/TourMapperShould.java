@@ -15,7 +15,7 @@ public class TourMapperShould {
     private TourResponse output;
 
     @Before
-    public void setup(){
+    public void setup(){ //klahs gia arxikopoihsh
         mapper = new TourMapper();
         tourInput = new Tour(1000,400,"Da best Tour","shorty","longy");
         tourInput.setId(100);

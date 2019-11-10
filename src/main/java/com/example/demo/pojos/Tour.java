@@ -32,6 +32,16 @@ public class Tour {
         this.longDesc = longDesc;
     }
 
+    public Tour(long id, int price, int discount, String title, String shortDesc, String longDesc, TourPackage tourPackage) {
+        this.id = id;
+        this.price = price;
+        this.discount = discount;
+        this.title = title;
+        this.shortDesc = shortDesc;
+        this.longDesc = longDesc;
+        this.tourPackage = tourPackage;
+    }
+
     public long getId() {
         return id;
     }

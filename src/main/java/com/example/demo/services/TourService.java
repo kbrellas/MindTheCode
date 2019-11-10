@@ -5,7 +5,6 @@ import com.example.demo.pojos.*;
 import com.example.demo.pojos.Error;
 import com.example.demo.repositories.TourPackageRepository;
 import com.example.demo.repositories.TourRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,14 +13,17 @@ import java.util.List;
 @Service
 public class TourService {
 
-    @Autowired
     private TourMapper tourMapper;
 
-    @Autowired
     private TourRepository tourRepository;
 
-    @Autowired
-    TourPackageRepository tourPackageRepository;
+    private TourPackageRepository tourPackageRepository;
+
+    public TourService(TourMapper tourMapper, TourRepository tourRepository, TourPackageRepository tourPackageRepository) {
+        this.tourMapper = tourMapper;
+        this.tourRepository = tourRepository;
+        this.tourPackageRepository = tourPackageRepository;
+    }
 
     public List<TourResponse> getAllTours(){
         Iterable<Tour> retrievedTours = tourRepository.findAll();
