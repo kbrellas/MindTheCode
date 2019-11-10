@@ -75,6 +75,8 @@ public class DemoApplication implements CommandLineRunner {//gia na xrhimopoieis
 		userRepo.save(katerina);
 		userRepo.save(alexis);
 
+        Tour tour7 = new Tour(10,5, "sightseeing", "kallithea sites", "manhattan of athens");
+        tourRepo.save(tour7);
 	}
 }
 

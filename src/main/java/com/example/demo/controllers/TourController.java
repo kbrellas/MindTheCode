@@ -29,8 +29,13 @@ public class TourController {
     }
 
     @GetMapping("getToursByPackageId/{id}")
-    public GetAllToursResponse getToursByPackageId(@PathVariable Long id){
-        return new GetAllToursResponse(tourService.getTourByPackageId(id));
+    public ResponseEntity getToursByPackageId(@PathVariable Long id){
+        try {
+            return new ResponseEntity(new GetAllToursResponse(tourService.getTourByPackageId(id)),null,HttpStatus.OK);
+        }catch (NullPointerException npe){
+            npe.printStackTrace();
+            return new ResponseEntity(new Error(0,"Error","Something went wrong pls try again"),null,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("getExpensiveTours")
@@ -40,15 +45,19 @@ public class TourController {
 
     @GetMapping("/getToursByCriteria/{criteria}/{id}")
     public ResponseEntity getToursByCriteria(@PathVariable String criteria, @PathVariable long id) {
+        try {
+            if (!criteria.equals("tourPackage")) {
+                return new ResponseEntity(new Error(0, "wrong criteria", "The criteria should be tourPackage"), null, HttpStatus.BAD_REQUEST);
+            }
 
-        if(!criteria.equals("tourPackage")){
-            return new ResponseEntity(new Error(0,"wrong criteria","The criteria should be tourPackage"),null,HttpStatus.BAD_REQUEST);
+            GenericResponse<List<TourResponse>> response = tourService.getToursByCriteria(criteria, id);
+            if (response.getError() != null)
+                return new ResponseEntity(response.getError(), null, HttpStatus.OK);
+
+            return new ResponseEntity(new GetAllToursResponse(response.getData()), null, HttpStatus.OK);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity(new Error(0,"Error","Something went wrong pls try again"),null,HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
-        GenericResponse<List<TourResponse>> response = tourService.getToursByCriteria(criteria,id);
-        if(response.getError()!=null)
-            return new ResponseEntity(response.getError(),null, HttpStatus.OK);
-
-        return new ResponseEntity(new GetAllToursResponse(response.getData()),null, HttpStatus.OK);
     }
 }

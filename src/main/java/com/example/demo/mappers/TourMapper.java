@@ -20,7 +20,10 @@ public class TourMapper {
     }
 
     private String getTitleFromTourPackage(Tour tour) {
-        return tour.getTourPackage().getDesc();
+        if(tour.getTourPackage()!=null)
+            return tour.getTourPackage().getDesc();
+        else
+            return "";
     }
 
     private int mapFinalPrice(Tour tour) {
