@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.users;
 
 import com.example.demo.mappers.UserMapper;
 import com.example.demo.pojos.User;

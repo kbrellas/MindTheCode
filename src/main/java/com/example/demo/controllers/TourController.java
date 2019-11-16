@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController // auto to kanoume gia na orisoume to default REST template
-@RequestMapping("/")
+@RequestMapping("/tour-office/")
 public class TourController {
 
     @Autowired

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.tours;
 
 import com.example.demo.mappers.TourMapper;
 import com.example.demo.pojos.Tour;
